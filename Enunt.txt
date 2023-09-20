@@ -1,0 +1,149 @@
+Journey by Codecool
+Learn
+Review
+Feedback
+My Account
+
+Collections
+Seasonal Product Discounter
+
+OPEN REPOSITORY
+
+SEND TO REVIEW
+MORE OPTIONS
+In progress
+Ratings (11)
+DIFFICULTY:
+4.1
+USEFULNESS:
+4.9
+FUN:
+3.7
+MATERIALS:
+3.4
+DURATION:
+ 556 min
+Running a clothing shop can be overwhelming. The management comes up with different discount ideas all the time, and it's hard to keep track of them and calculate the eventual price for the products. You need to develop a program that can accommodate various types of discounts, and apply the relevant ones for a specific product on a specific day.
+
+Currently, there are three types of discounts.
+
+Monthly discounts:
+Summer Kick-off, 10% discount on every product during June and July.
+Winter Sale, 10% discount on every product during February.
+Color discounts:
+Blue Winter, 5% discount on every blue-colored product during winter.
+Green Spring, 5% discount on every green-colored product during spring.
+Yellow Summer, 5% discount on every yellow-colored product during summer.
+Brown Autumn, 5% discount on every brown-colored product during autumn.
+Seasonal discounts:
+Sale Discount, 10% discount if the item is bought right before or right after the favored season. (Such as buying winter gloves during spring.)
+Outlet Discount, 20% discount if the item is bought two seasons after the favored season. (Such as buying winter gloves during summer.)
+The Seasonal Product Discounter will be an ongoing project, which you'll work on during every solo week. With each new sprint, we are going to to add new features to the project, and improve existing ones. This approach models the iterative software development process with its ever-changing requirements.
+
+Each solo week will provide a small description on what needs to be added and why. If you haven't completed the previous week, you can become out of sync. For this reason, starting with the second sprint, the starter repos will contains the latest version of the program that you can use to build on.
+
+It would however be most beneficial for you to try and always complete the tasks in your existing codebase, because this improves your code maintenance and refactoring skills.
+
+While developing, please keep in mind the architectural principles you've acquired in the Basic Architecture section of this chapter. Your application should:
+
+satisfy the Single Responsibility Principle,
+use the Interface Segregation Principle,
+use Dependency Injection,
+include logging of the operations,
+follow Clean Code Principles.
+What are you going to learn?
+Use collections
+Static classes
+Records in Java
+Enum conversions
+Understand Interface Segregation Principle
+Understand Single Responsibility Principle
+Dependency Injections
+Tasks
+0%
+SHOW ALL CRITERIA
+Logger
+We need to create a flexible logging framework to be able to write messages about the application's state and execution steps. Logging is very crucial to follow a complex execution flow. If an error happens, log files are usually the first to be consulted. Then it should be quite easy to locate the source of the error - provided the developers paid attention to write meaningful & detailed log entries.
+
+For our current logging purposes, we are going to create a logger interface, and a single implementation ConsoleLogger.
+
+A new class called ConsoleLogger is created which implements the Looger interface and logs messages to the console. The messages should contain a timestamp, an indication about the type of the message (INFO or ERROR), and the message itself.
+
+CRITERIA
+Season enum
+Implement the methods shift and contains in the Season enum.
+
+The shift method needs to shift the season enum forward by the specified shift value. For example, if the enum is Season.Summer and the shift value is 1, the method must return Season.Autumn. You can achieve this by converting enum values into int values using the ordinal() method and vice versa. The implementation must work for any shift value
+
+The contains method must determine whether a given month is part of a season.
+
+The shift extension method is implemented.
+
+The contains method is implemented.
+
+CRITERIA
+Discount implementation
+Create implementations for the types of discounts given in the project introduction. These must implement the Discount interface.
+
+Create the implementations as records. Check the Product class for reference.
+
+Implement the toString() methods, to print the objects to the console later.
+
+Monthly discount is implemented.
+
+Color discount is implemented.
+
+Seasonal discount is implemented.
+
+CRITERIA
+DiscountProvider implementation
+Create an implementation for the DiscountProvider interface. This class must create the Discount objects upon its construction and store them in a private field. Create the discounts described in the project introduction.
+
+An implementation for the DiscountProvider interface is created. The class creates the Discount objects and stores them in a prive field that can be accessed through the interface method.
+
+CRITERIA
+DiscountProvider implementation
+Create an implementation for the DiscountService interface. The method getOffer must perform the following:
+
+Find the applicable discounts for a given product and date.
+
+Calculate the discounted price.
+
+Create and return a new Offer object.
+
+An implementation for the DiscountService interface is created. The getOffer method returns a new Offer object by performing the above procedure.
+
+CRITERIA
+User Interface
+Implement the SeasonalProductDiscounterUi class.
+
+The printCatalog method is implemented, and it displays the current product catalog on the console.
+
+The printPromotions method is implemented, and it displays the available promotions on the console.
+
+The getDate method is implemented. It asks the user for a date. If no valid date is provided, the method continues to ask until a valid date is given.
+
+The printOffers method is implemented. It gets the available offers based on the previously specified date and displays them on the console.
+
+CRITERIA
+Application
+Complete the Application class. Create the required components and call the Run method of the SeasonalProductDiscounterUi class.
+
+The ProductProvider, DiscountService, and DiscountProvider components are created.
+
+An instance of the SeasonalProductDiscounterUi is created, and its run method is called.
+
+CRITERIA
+
+
+Hints
+Implement seasonal shifts using the modulo (%) operator.
+Generate the toString() methods using IntelliJ instead of typing them out.
+Background materials
+Collections in Java
+Clean Code Principles
+Records in Java
+Generate formatting members in IntelliJ
+Console I/O in Java
+Enums in Java
+
